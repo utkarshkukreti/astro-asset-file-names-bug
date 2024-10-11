@@ -8,4 +8,15 @@ export default defineConfig({
   adapter: node({
     mode: 'standalone',
   }),
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          entryFileNames: 'entry.[hash].mjs',
+          chunkFileNames: 'chunks/chunk.[hash].mjs',
+          assetFileNames: 'assets/asset.[hash][extname]',
+        },
+      },
+    },
+  },
 })
